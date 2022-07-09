@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/* eslint-disable jsx-a11y/accessible-emoji */
+import React from "react";
+import ReactDOM from "react-dom";
+import Styles from "./Styles";
+import { Form, Field } from "react-final-form";
+import { MoralisProvider } from "react-moralis";
+import reportWebVitals from "./reportWebVitals";
+import App from "./App"
+import MoralisNavbar from './Navbar';
+import UserViewForm from './form';
+import Mainbody from './Mainbody';
+import CreateForm from './CreateForm';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ReactDOM.render(
+  <Router>
+    <MoralisProvider serverUrl="https://60r9ytb776t6.usemoralis.com:2053/server" appId="QlJ1itRM5T1dgd3VP0fWwmjFRZPcrkkQkI3mAq1H">
+      <App/>
+    </MoralisProvider>
+    </Router>,
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
